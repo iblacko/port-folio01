@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.8.1/css/foundation.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.8.1/css/foundation-float.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="container">
+        <img class="logo" src="Gent.jpeg" alt="">
+        <h1 class="name">Passavij Niyakul</h1>
+        <span class="slogan">Frontend Deverloper</span>
+        <div class="social-img">
+           <a href="https://web.facebook.com/passavit.niyakul/" target="_blank"><i class="bx bxl-facebook-circle"></i></a>
+            <a href="https://www.instagram.com/_ggentt_/" target="_blank"><i class="bx bxl-instagram"></i></a>
+        </div><hr>
+        <p class="bio">
+            สวัสดีครับ/ค่ะ! ผมชื่อ [ชื่อ-สกุล] และเป็น Frontend Developer ที่มีความสามารถในการสร้างประสบการณ์ใช้งานที่น่าทึ่งบนเว็บไซต์ของคุณ ด้วยความหลงใหลในการสร้างและพัฒนา UI/UX ที่น่าสะท้อนและใช้งานได้ง่าย ผมมีความคิดสร้างสรรค์และความใส่ใจในรายละเอียดเล็กๆที่ทำให้เว็บไซต์เป็นเอกลักษณ์และมีความประทับใจมากขึ้น
+
+            ในการพัฒนา, ผมถนัดในการใช้ HTML, CSS, และ JavaScript เพื่อสร้างหน้าเว็บที่สวยงามและมีประสิทธิภาพ และมีประสบการณ์ในการทำงานกับ Frameworks เช่น React ซึ่งช่วยให้ผมสามารถสร้าง Single Page Applications ที่มีประสิทธิภาพได้อย่างดี
+
+            ผมตั้งใจที่จะพัฒนาตนเองอยู่เสมอ และเป็นคนที่หลงไหลในเทคโนโลยีใหม่ๆที่เพิ่มประสิทธิภาพการพัฒนาเว็บไซต์ หากคุณกำลังมองหานักพัฒนาที่มีความคิดสร้างสรรค์และมีความคาดหวังสูง, ผมยินดีที่จะร่วมงานกับคุณ!
+        </p>
+        <h5>Portfolio</h5>
+        <hr>
+        <div class="row">
+            <div class="small-6 columns">
+                <div class="work"></div>
+                <img src="work1.png" alt="">
+            </div>
+            <div class="small-6 columns">
+                <div class="work"></div>
+                <img src="work2.png" alt="">
+            </div>
+            <div class="small-6 columns">
+                <div class="work"></div>
+                <img src="coca.png" alt="">
+            </div>
+            <div class="small-6 columns">
+                <div class="work"></div>
+                <img src="work3.png" alt="">
+            </div>
+        </div>
+        <div>
+            <h5>Contact me</h5>
+            <hr>
+            <form id="contactForm" onsubmit="sendEmail(); resetForm(); return false;">
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <label for="name">Name:
+                            <input type="text" id="name" name="name" placeholder="Your Name">
+                        </label>
+                    </div>
+                    <div class="medium-6 columns">
+                        <label for="email">Email:
+                            <input type="text" id="email" name="email" placeholder="Your Email">
+                        </label>
+                    </div>
+                    <div class="medium-12 columns">
+                        <label for="message">Message:
+                            <textarea id="message" name="message" placeholder="None"></textarea>
+                        </label>
+                        <button type="submit" class="button">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+            const contactForm = document.getElementById('contactForm');
+
+            function sendEmail() {
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const message = document.getElementById("message").value;
+
+                const bodyMessage = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+
+                Email.send({
+                    Host: "smtp.elasticemail.com",
+                    Username: "iblacko.gent2549@gmail.com",
+                    Password: "92545ADAA57BA52FC83D5DD454006B7B86C4",
+                    To: 'iblacko.gent2549@gmail.com',
+                    From: "iblacko.gent2549@gmail.com",
+                    Subject: "New Contact Form Submission",
+                    Body: bodyMessage
+                }).then(
+                    message => {
+                        alert("Email sent successfully!");
+                        console.log(message);
+                    }
+                ).catch(
+                    error => {
+                        console.error(error);
+                        alert("Error sending email. Please try again later.");
+                    }
+                );
+            }
+
+            function resetForm() {
+                contactForm.reset();
+            }
+
+            contactForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                sendEmail();
+            });
+        </script>
+
+        <div class="footer">
+            Passavij Niyakul &copy;
+            <script>
+                document.write(new Date().getFullYear())
+            </script>. All Rights Reserved
+        </div>
+    </div>
+
+</body>
+</html>
